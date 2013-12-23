@@ -1,0 +1,14 @@
+---
+# Playbook to bootstrap a development machine from
+# a fresh Ubuntu Desktop install.
+
+- hosts: workstation
+
+  roles:
+    - editors
+    - vcs
+    - languages
+    - browsers
+    - virtualbox
+    - docker
+    - httpd

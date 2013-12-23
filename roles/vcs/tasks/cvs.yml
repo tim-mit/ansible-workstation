@@ -1,0 +1,6 @@
+---
+# Install cvs
+
+  - name: Install cvs
+    sudo: yes
+    apt: pkg=cvs state=latest update-cache=yes

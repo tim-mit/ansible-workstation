@@ -1,0 +1,6 @@
+---
+# Main entry point for installing version control systems
+
+  - include: git.yml
+  - include: cvs.yml
+  - include: subversion.yml

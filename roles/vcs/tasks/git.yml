@@ -1,0 +1,6 @@
+---
+# Install git
+
+  - name: Install git
+    sudo: yes
+    apt: pkg=git state=latest update-cache=yes

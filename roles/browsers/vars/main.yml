@@ -1,0 +1,9 @@
+---
+# Configuration for browser installations
+
+# Location any downloaded files will be written to
+dload_dir: /tmp
+
+# Chrome configuration
+chrome_base_url: https://dl.google.com/linux/direct
+chrome_deb_name: google-chrome-stable_current_amd64.deb

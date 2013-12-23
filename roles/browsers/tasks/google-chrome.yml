@@ -1,0 +1,23 @@
+---
+# Installs Google Chrome browser
+
+  - name: Check if Google Chrome is installed
+    command: google-chrome --version
+    register: result
+    ignore_errors: yes
+
+  - name: Download latest Chrome deb
+    get_url: url={{ chrome_base_url }}/{{ chrome_deb_name }} dest={{ dload_dir }} force=no
+    when: result.rc != 0
+
+  - name: Install Chrome deb
+    sudo: yes
+    command: dpkg -i {{ dload_dir }}/{{ chrome_deb_name }}
+    ignore_errors: yes
+    when: result.rc != 0
+
+  - name: Sort out any missing dependencies following deb install
+    sudo: yes
+    command: apt-get install --fix-broken --yes
+    when: result.rc != 0
+

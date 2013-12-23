@@ -1,0 +1,6 @@
+---
+# Install subversion
+
+  - name: Install subversion
+    sudo: yes
+    apt: pkg=subversion state=latest update-cache=yes

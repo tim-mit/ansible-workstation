@@ -1,0 +1,6 @@
+---
+# Install meld
+
+  - name: Install Meld
+    sudo: yes
+    apt: pkg=meld state=latest update-cache=yes

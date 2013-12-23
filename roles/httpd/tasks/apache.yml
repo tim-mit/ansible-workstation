@@ -1,0 +1,6 @@
+---
+# Install Apache2
+
+  - name: Install Apache2
+    sudo: yes
+    apt: pkg=apache2 state=latest update-cache=yes

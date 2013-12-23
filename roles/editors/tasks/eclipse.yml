@@ -1,0 +1,22 @@
+---
+# Installs Eclipse
+
+  - name: Check if Eclipse is installed
+    command: cat {{ eclipse_install_dir }}/eclipse/.eclipseproduct
+    register: result
+    ignore_errors: yes
+
+  - name: Download latest Eclipse tarball
+    get_url: url={{ eclipse_dload_url }}/{{ eclipse_tar_name }} dest={{ dload_dir }} force=no
+    when: result.rc != 0
+
+  - name: Unpack {{ name }} tarball
+    sudo: yes
+    command: tar -xf {{ dload_dir }}/{{ eclipse_tar_name }} -C {{ eclipse_install_dir }}
+    when: result.rc != 0
+
+  - name: Create a .desktop entry for {{ name }}
+    sudo: yes
+    template: src=eclipse.desktop dest=/usr/share/applications
+    when: result.rc != 0
+

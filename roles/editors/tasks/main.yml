@@ -1,0 +1,6 @@
+---
+# Entry point for the editors task
+
+  - include: vim.yml
+  - include: meld.yml
+  - include: eclipse.yml

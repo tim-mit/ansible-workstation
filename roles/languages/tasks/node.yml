@@ -1,0 +1,13 @@
+---
+# Install Node and NPM
+
+  - name: Add Node ppa
+    sudo: yes
+    apt_repository: repo=ppa:richarvey/nodejs state=present update-cache=yes
+
+  - name: Install Node/NPM
+    sudo: yes
+    apt: pkg={{ item }} state=latest update-cache=yes
+    with_items:
+      - nodejs
+      - npm

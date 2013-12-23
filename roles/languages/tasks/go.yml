@@ -1,0 +1,6 @@
+---
+# Install Golang
+
+  - name: Install Golang
+    sudo: yes
+    apt: pkg=golang state=latest update-cache=yes

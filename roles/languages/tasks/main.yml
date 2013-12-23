@@ -1,0 +1,6 @@
+---
+# Main entry point for installing programming languages
+
+    - include: go.yml
+    - include: node.yml
+    - include: java.yml

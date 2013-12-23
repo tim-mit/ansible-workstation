@@ -1,0 +1,6 @@
+---
+# Install vim
+
+  - name: Install Vim
+    sudo: yes
+    apt: pkg=vim state=latest update-cache=yes

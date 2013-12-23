@@ -1,0 +1,4 @@
+---
+# Main entry point for installing various browsers
+
+   - include: google-chrome.yml

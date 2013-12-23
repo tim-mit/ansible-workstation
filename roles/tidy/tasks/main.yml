@@ -1,0 +1,12 @@
+---
+# Tidy up a fresh Ubuntu Desktop install
+
+  - name: Remove unwanted packages
+    sudo: yes
+    apt: pkg={{ item }} state=absent purge=yes
+    with_items:
+      - ubuntuone-client
+      - python-ubuntuone-storage*
+      - rhythmbox
+      - evolution
+      - thunderbird

@@ -1,0 +1,11 @@
+---
+# Configuration for installing any editors
+
+# Location any downloads will be written to
+dload_dir: /tmp
+
+# Eclipse configuration
+eclipse_version: kepler
+eclipse_dload_url: http://mirror.csclub.uwaterloo.ca/eclipse/technology/epp/downloads/release/{{ eclipse_version }}/SR1/
+eclipse_tar_name: eclipse-jee-{{ eclipse_version }}-SR1-linux-gtk-x86_64.tar.gz
+eclipse_install_dir: /opt

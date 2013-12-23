@@ -1,0 +1,23 @@
+---
+# Install Virtualbox
+
+  - name: Check if Virtualbox is installed
+    command: vboxheadless --version
+    register: result
+    ignore_errors: yes
+
+  - name: Download latest Virtualbox deb
+    get_url: url={{ virtualbox_dload_url }}/{{ virtualbox_deb_name }} dest={{ dload_dir }} force=no
+    when: result.rc != 0
+
+  - name: Install Virtualbox deb
+    sudo: yes
+    command: dpkg -i {{ dload_dir }}/{{ virtualbox_deb_name }}
+    ignore_errors: yes
+    when: result.rc != 0
+
+  - name: Sort out any missing dependencies following deb install
+    sudo: yes
+    command: apt-get install --fix-broken --yes
+    when: result.rc != 0
+

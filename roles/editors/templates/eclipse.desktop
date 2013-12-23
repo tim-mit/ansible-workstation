@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version={{ eclipse_version }}
+Name=Eclipse
+Comment=Eclipse IDE
+# note the menu proxy is in use due to a bug in eclipse
+# meaning the menus end up empty
+Exec=env UBUNTU_MENUPROXY=0 {{ eclipse_install_dir}}/eclipse/eclipse
+Icon={{ eclipse_install_dir }}/eclipse/icon.xpm
+Terminal=false
+Type=Application
+Categories=Utility;Application;Development

@@ -1,0 +1,11 @@
+---
+# Configuration for installing any languages
+
+# Location any downloads will be written to
+dload_dir: /tmp
+
+# Activestate Tcl configuration
+tcl_dload_url: http://downloads.activestate.com/ActiveTcl/releases/8.6.1.0/ActiveTcl8.6.1.0.297577-linux-x86_64-threaded.tar.gz
+tcl_tar_name: ActiveTcl8.6.1.0.297577-linux-x86_64-threaded.tar.gz
+tcl_tar_dir_name: ActiveTcl8.6.1.0.297577-linux-x86_64-threaded
+tcl_install_dir: /opt/tcl8.6

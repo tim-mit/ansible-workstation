@@ -1,0 +1,36 @@
+---
+# Installs Activestate Tcl
+
+  - name: Check if Activestate Tcl is installed
+    command: cat {{ tcl_install_dir }}/license-at8.6-thread.terms
+    register: result
+    ignore_errors: yes
+
+  - name: Download latest Activestate Tcl tarball
+    get_url: url={{ tcl_dload_url }}/{{ tcl_tar_name }} dest={{ dload_dir }} force=no
+    when: result.rc != 0
+
+  - name: Unpack the Activestate Tcl tarball
+    command: tar -xf {{ dload_dir }}/{{ tcl_tar_name }}
+    when: result.rc != 0
+
+  - name: Run the Activestate Tcl installer
+    sudo: yes
+    command: chdir=/tmp/{{ dload_dir }}/{{ tcl_tar_dir_name }} ./install.sh --directory {{ tcl_install_dir }}
+    when: result.rc != 0
+
+  - name: Run update-alternatives for tclsh
+    sudo: yes
+    command: update-alternatives --install /usr/bin/tclsh tclsh {{ tcl_install_dir }}/bin/tclsh 200
+
+  - name: Run update-alternatives for wish
+    sudo: yes
+    command: update-alternatives --install /usr/bin/wish wish {{ tcl_install_dir }}/bin/wish 200
+
+  - name: Add entry to include the tcl libs automatically
+    sudo: yes
+    template: src=activestate-tcl.conf dest=/etc/ld.so.conf.d/
+
+  - name: Update load path db
+    sudo: yes
+    command: ldconfig

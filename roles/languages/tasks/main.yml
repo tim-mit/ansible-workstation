@@ -4,3 +4,4 @@
     - include: go.yml
     - include: node.yml
     - include: java.yml
+    - include: tcl.yml

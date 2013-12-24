@@ -13,3 +13,6 @@
     sudo: yes
     apt: pkg=lxc-docker
 
+  - name: Add user to docker group (avoids sudo being necessary)
+    sudo: yes
+    command: usermod -a -G docker $ansible_user_id

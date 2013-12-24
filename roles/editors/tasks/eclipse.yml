@@ -10,12 +10,12 @@
     get_url: url={{ eclipse_dload_url }}/{{ eclipse_tar_name }} dest={{ dload_dir }} force=no
     when: result.rc != 0
 
-  - name: Unpack {{ name }} tarball
+  - name: Unpack Eclipse tarball
     sudo: yes
     command: tar -xf {{ dload_dir }}/{{ eclipse_tar_name }} -C {{ eclipse_install_dir }}
     when: result.rc != 0
 
-  - name: Create a .desktop entry for {{ name }}
+  - name: Create a .desktop entry for Eclipse
     sudo: yes
     template: src=eclipse.desktop dest=/usr/share/applications
     when: result.rc != 0
